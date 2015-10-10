@@ -1,4 +1,4 @@
-# dockutil
+# dockgo
 
 consice way to spin up your own docker instances
 
@@ -9,5 +9,5 @@ consice way to spin up your own docker instances
 ### to install:
 
 ```
-curl https://raw.githubusercontent.com/xpika/dockutil/master/dockutil | sh
+. $(https://raw.githubusercontent.com/xpika/dockutil/master/dockgo)
 ```
