@@ -1,6 +1,6 @@
 # dockgo
 
-consice way to spin up your own docker instances
+concise way to spin up your own docker instances
 
  step 1. create directory                                                                                                                          
  step 2. create Dockerfile                                                                                                                                                                  
