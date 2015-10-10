@@ -9,5 +9,5 @@ consice way to spin up your own docker instances
 ### to install:
 
 ```
-. $(https://raw.githubusercontent.com/xpika/dockutil/master/dockgo)
+. $(https://raw.githubusercontent.com/xpika/dockgo/master/dockgo)
 ```
