@@ -1,5 +1,3 @@
-#!/bin/bash                                                                                                                                                                                                        
-                                                                                                                                                                                                                   
 # consice way to spin up instances                                                                                                                                                                                 
 # step 1. create directory with the same name you want for image and container                                                                                                                                     
 # step 2. create Dockerfile with bash entrypoint                                                                                                                                                                   
