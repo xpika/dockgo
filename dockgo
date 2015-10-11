@@ -1,5 +1,6 @@
 alias dockbuild='docker build -t "${PWD##*/}" .'
 alias dockrun='docker rm -f "${PWD##*/}" ; docker run $([ -d workdir ] && echo -v workdir:/root/workdir) -p 80:80 -i -d -t --name "${PWD##*/}" "${PWD##*/}"'
+alias dockbug='docker rm -f "${PWD##*/}" ; docker run --entrypoint=/bin/bash $([ -d workdir ] && echo -v workdir:/root/workdir) -p 80:80 -i -d -t --name "${PWD##*/}" "${PWD##*/}"'
 alias dockattach='docker attach "${PWD##*/}"'   
 alias dockstop='docker stop "${PWD##*/}"'                                                           
 alias dockgo='dockbuild ; dockrun ; dockattach'  
