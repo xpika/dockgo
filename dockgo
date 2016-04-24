@@ -13,4 +13,4 @@ alias dockrun='dockrm; docker run $([ -d workdir ] && echo -v `pwd`/workdir:/roo
 alias dockattach='docker attach "${PWD##*/}"'                                                                                                                                                 
 alias dockstop='docker stop "${PWD##*/}"'                                                                                                                                                     
 alias dockgo='dockbuild ; dockrun ; dockattach'                                                                                                                                               
-alias dockenter='docker exec -i -t "${PWD##*/}" /bin/bash' 
+alias dockenter='docker exec -i -t "${PWD##*/}" script -c /bin/bash' 
