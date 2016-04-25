@@ -15,4 +15,4 @@ alias dockstop='docker stop "${PWD##*/}"'
 alias dockgo='dockbuild ; dockrun ; dockenter'                                                                                                                                               
 alias dockenter='docker exec -i -t "${PWD##*/}" script -c /bin/bash' 
 alias dockcommit='docker commit "${PWD##*/}" "${PWD##*/}""
-alias dockhiber='dockstop;dockcommit;dockrm'
+alias dockhiber='dockstop;dockcommit && dockrm'
