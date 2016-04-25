@@ -9,8 +9,7 @@ function getPort(){
                                                                                                                                                                                               
 alias dockbuild='docker build -t "${PWD##*/}" .'                                                                                                                                              
 alias dockrm='docker rm -f "${PWD##*/}"'    
-alias dockmknet='docker network create --driver bridge "${PWD##*/}"'
-alias dockrun='dockmknet ; docker run $([ -d workdir ] && echo -v `pwd`/workdir:/root/workdir) -p `getPort`:80 -i -d -t --privileged=true --net="isolated_nw" --name "${PWD##*/}"  "${PWD##*/}"'                                         
+alias dockrun='docker run $([ -d workdir ] && echo -v `pwd`/workdir:/root/workdir) -p `getPort`:80 -i -d -t --privileged=true --expose=1-65535 --name "${PWD##*/}"  "${PWD##*/}"'
 alias dockattach='docker attach "${PWD##*/}"'                                                                                                                                                 
 alias dockstop='docker stop "${PWD##*/}"'                                                                                                                                                     
 alias dockgo='dockbuild ; dockrun ; dockenter'                                                                                                                                               
