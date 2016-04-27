@@ -5,8 +5,8 @@ function getPort(){
     CHECK=$(sudo netstat -ap | grep $PORT)                                                                                                                                                    
   done                                                                                                                                                                                        
   echo $PORT                                                                                                                                                                                  
-}                                                                                                                                                                                             
-                                                                                                                                                                                              
+}
+
 alias dockbuild='docker build -t "${PWD##*/}" .'                                                                                                                                              
 alias dockrm='docker rm -f "${PWD##*/}"'    
 alias dockrun='docker run $([ -d /root/workdir ] && echo -v /root/workdir:/root/workdir) -p `getPort`:80 -i -d -t --privileged=true --expose=80-90 --name "${PWD##*/}"  "${PWD##*/}"'
@@ -14,6 +14,8 @@ alias dockattach='docker attach "${PWD##*/}"'
 alias dockstop='docker stop "${PWD##*/}"'                                                                                                                                                     
 alias dockgo='dockbuild ; dockrun ; dockenter'                                                                                                                                               
 alias dockenter='docker exec -i -t "${PWD##*/}" script --force -c /bin/bash' 
+alias dockmux='docker exec -i -t "${PWD##*/}" script --force -c bash -c "tmux attach"'
 alias dockcommit='docker commit "${PWD##*/}" "${PWD##*/}"'
 alias dockhiber='dockstop;dockcommit && dockrm'
 alias dockip='docker inspect --format "{{ .NetworkSettings.Networks.bridge.IPAddress }}"  "${PWD##*/}"'
+
