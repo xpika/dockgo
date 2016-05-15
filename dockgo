@@ -19,4 +19,7 @@ alias dockmux='docker exec -i -t "${PWD##*/}" script --force -c bash -c "tmux at
 alias dockcommit='docker commit "${PWD##*/}" "${PWD##*/}"'
 alias dockhiber='dockstop;dockcommit && dockrm'
 alias dockip='docker inspect --format "{{ .NetworkSettings.Networks.bridge.IPAddress }}"  "${PWD##*/}"'
+alias dockid='docker inspect --format {{.Id}} "${PWD##*/}" '
+alias dockmid='cat /var/lib/docker/image/aufs/layerdb/mounts/`dockid`/mount-id'
+alias dockdir='echo /var/lib/docker/aufs/diff/`dockmid`'
 
