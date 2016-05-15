@@ -22,4 +22,4 @@ alias dockip='docker inspect --format "{{ .NetworkSettings.Networks.bridge.IPAdd
 alias dockid='docker inspect --format {{.Id}} "${PWD##*/}" '
 alias dockmid='cat /var/lib/docker/image/aufs/layerdb/mounts/`dockid`/mount-id'
 alias dockdir='echo /var/lib/docker/aufs/diff/`dockmid`'
-alias dockln='ln `dockdir` mount'
+alias dockln='ln -s `dockdir` mount'
