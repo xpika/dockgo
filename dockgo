@@ -7,6 +7,22 @@ function getPort(){
   echo $PORT                                                                                                                                                                                  
 }
 
+function dockmount(){
+  DOCKER_AUFS_PATH="/var/lib/docker/aufs"
+  DOCKER_AUFS_LAYERS="${DOCKER_AUFS_PATH}/layers/"
+  DOCKER_AUFS_DIFF="${DOCKER_AUFS_PATH}/diff"
+  
+  BRANCH="br"
+  IMAGE=`dockmid`
+  TARGET="mymount"
+  while read LAYER; do
+          BRANCH+=":${DOCKER_AUFS_DIFF}/${LAYER}=rw"
+  done < "${DOCKER_AUFS_LAYERS}/${IMAGE}"
+  umount "${TARGET}"
+  mount -t aufs -o "${BRANCH}" none "${TARGET}"
+
+}
+
 alias dockbuild='docker build -t "${PWD##*/}" .'
 alias dockrm='docker rm -f "${PWD##*/}"'
 alias dockrun='docker run $([ -d /workdir ] && echo -v /workdir:/workdir) -p `getPort`:80 -i -d -t -e "DISPLAY=unix:0.0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged=true --expose=80-90 --name "${PWD##*/}"  "${PWD##*/}"'
