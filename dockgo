@@ -39,5 +39,4 @@ alias dockmid='cat /var/lib/docker/image/aufs/layerdb/mounts/`dockid`/mount-id'
 alias dockdir='echo /var/lib/docker/aufs/diff/`dockmid`'
 alias dockln='ln -s `dockdir` mount'
 alias dockstorage='sudo docker info|grep 'Storage Driver:''
-alias docksshinst='docker exec -i -t "${PWD##*/}" sh -c "apt-get install -y ssh ; sed -i \'s/^PermitRootLogin .*/PermitRootLogin no/\' /etc/ssh/sshd_config
- ; service ssh start"'
+alias docksshinst='docker exec -i -t "${PWD##*/}" sh -c "apt-get install -y ssh ; sed -i \'s/^PermitRootLogin .*/PermitRootLogin no/\' /etc/ssh/sshd_config ; service ssh start"'
