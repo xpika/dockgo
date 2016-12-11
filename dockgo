@@ -20,6 +20,7 @@ alias dockattach='docker attach "${PWD##*/}"'
 alias dockstop='docker stop "${PWD##*/}"'         
 alias dockstart='docker start "${PWD##*/}"'
 alias dockgo='dockbuild ; dockrun ; dockenter'
+alias dockstart_r='ssh $TARGET_MACHINE "docker start \"${PWD##*/}\""'
 
 alias dockmo='dockrm ; dockgo'
 alias dockenter='docker exec -i -t "${PWD##*/}" script --force -c /bin/bash' 
