@@ -12,6 +12,7 @@ dockclean(){
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
+alias dockephem='dockstart && dockenter && dockrm'
 alias dockbuild='docker build -t "${PWD##*/}" .'
 alias dockfreshbuild='docker build -t --no-cache "${PWD##*/}" .'
 alias dockrm='docker rm -f "${PWD##*/}"'
