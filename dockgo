@@ -12,6 +12,43 @@ dockclean(){
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
+deployRestarterCoreOS(){
+
+cat << EOF > /etc/systemd/system/date.service
+
+[Unit]                                                                                                                                                                                        
+Description=Prints date into /tmp/date file                                                                                                                                                   
+                                                                                                                                                                                              
+[Service]                                                                                                                                                                                     
+Type=oneshot                                                                                                                                                                                  
+ExecStart=/usr/bin/sh -c 'sh /root/script.sh;/usr/bin/date >> /tmp/date' 
+
+EOF
+
+cat << EOF > /etc/systemd/system/date.timer
+
+[Unit]                                                                                                                                                                                        
+Description=Run date.service every 10 minutes                                                                                                                                                 
+                                                                                                                                                                                              
+[Timer]                                                                                                                                                                                       
+OnCalendar=*:0/01:00     
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+
+cat << EOF > /root/script.sh
+
+docker start me2
+
+EOF
+
+sudo systemctl enable date.timer
+
+
+}
+
 alias dockephem='dockstart && dockenter && dockrm'
 alias dockbuild='docker build -t "${PWD##*/}" .'
 alias dockfreshbuild='docker build -t --no-cache "${PWD##*/}" .'
