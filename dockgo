@@ -77,6 +77,7 @@ alias dockvimmousedis='docker exec -i -t "${PWD##*/}" sh -c "echo set mouse= >> 
 alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal/bin:$PATH >> /root/.bashrc  "'
 #alias docksshinst="docker exec -i -t \"${PWD##*/}\" sh -c \"apt-get install -y ssh ; sed -i \\"s/^PermitRootLogin .*/PermitRootLogin yes/\\" /etc/ssh/sshd_config ; service ssh start\""
 alias dockdrestart="systemctl restart docker"
+alias dockstoprestart="docker update --restart=${PWD##*/}"
 
 # dont use this i found it to be buggy
 function dockmount(){
