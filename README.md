@@ -14,7 +14,7 @@ source <(curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo)
 
 ### to install
 ```
-echo source ~/dockgo >> ~/.bashrc
 curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo > ~/dockgo
+echo source ~/dockgo >> ~/.bashrc
 bash
 ```
