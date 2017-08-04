@@ -79,6 +79,9 @@ alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal
 alias dockdrestart="systemctl restart docker"
 alias dockstoprestart="docker update --restart=no ${PWD##*/}"
 
+# omitting -f will prevent removing things in use"
+alias dockprune="docker rm $(docker ps -q) && docker rmi $(docker images -q)"
+
 # dont use this i found it to be buggy
 function dockmount(){
   DOCKER_AUFS_PATH="/var/lib/docker/aufs"
