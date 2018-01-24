@@ -79,7 +79,8 @@ alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal
 #alias docksshinst="docker exec -i -t \"${PWD##*/}\" sh -c \"apt-get install -y ssh ; sed -i \\"s/^PermitRootLogin .*/PermitRootLogin yes/\\" /etc/ssh/sshd_config ; service ssh start\""
 alias dockdrestart="systemctl restart docker"
 alias dockstoprestart="docker update --restart=no ${PWD##*/}"
-alias dockstap='dockstoprestart ; dockstop'         
+alias dockstap='dockstoprestart ; dockstop'
+dockcp () { docker cp ${PWD##*/}:$1 .}
 
 # omitting -f will prevent removing things in use"
 alias dockprune='docker rm $(docker ps -q) && docker rmi $(docker images -q)'
