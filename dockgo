@@ -80,6 +80,7 @@ alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal
 alias dockdrestart="systemctl restart docker"
 alias dockstoprestart="docker update --restart=no ${PWD##*/}"
 alias dockstap='dockstoprestart ; dockstop'
+alias dockclean='docker images -q |xargs docker rmi'
 function dockcp () { docker cp ${PWD##*/}:$1 .}
 
 # omitting -f will prevent removing things in use"
