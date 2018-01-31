@@ -7,7 +7,7 @@ function getPort(){
   echo $PORT                                                                                                                                                                                  
 }
 
-dockclean(){
+function dockclean(){
     docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
@@ -80,8 +80,12 @@ alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal
 alias dockdrestart="systemctl restart docker"
 alias dockstoprestart="docker update --restart=no ${PWD##*/}"
 alias dockstap='dockstoprestart ; dockstop'
-alias dockclean='docker images -q |xargs docker rmi'
-function dockcp () { docker cp ${PWD##*/}:$1 .}
+alias dockcleani='docker images -q | xargs docker rmi'
+function dockcp () { 
+
+ docker cp ${PWD##*/}:$1 .
+
+}
 
 # omitting -f will prevent removing things in use"
 alias dockprune='docker rm $(docker ps -q) && docker rmi $(docker images -q)'
