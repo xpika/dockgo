@@ -88,7 +88,7 @@ function dockcp () {
 }
 
 # omitting -f will prevent removing things in use"
-alias dockprune='docker rm $(docker ps -q) && docker rmi $(docker images -q)'
+alias dockprune='docker rm $(docker ps -q) ; docker rmi $(docker images -q)'
 
 # dont use this i found it to be buggy
 function dockmount(){
