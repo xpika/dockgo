@@ -25,3 +25,6 @@ then
 echo source ~/dockgo >> ~/.bashrc
 bash
 ```
+
+then
+docker network create the_net
