@@ -27,4 +27,6 @@ bash
 ```
 
 then
+```
 docker network create the_net
+```
