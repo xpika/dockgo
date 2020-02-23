@@ -49,6 +49,7 @@ sudo systemctl enable date.timer
 
 }
 
+alias dockls='docker ls --no-trunc'
 alias dockephem='dockstart && dockenter && dockrm'
 alias dockbuild='docker build -t "${PWD##*/}" .'
 alias dockfreshbuild='docker build -t --no-cache "${PWD##*/}" .'
