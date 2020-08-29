@@ -9,20 +9,20 @@ concise way to spin up docker instances
 ### to try:
 
 ```
-source <(curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo) 
+source <(curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo.sh) 
 ```
 
 ### to install
 ```
-curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo > ~/dockgo 
+curl https://raw.githubusercontent.com/xpika/dockgo/master/dockgo.sh > ~/dockgo.sh 
 ```
 or
 ```
-wget https://raw.githubusercontent.com/xpika/dockgo/master/dockgo -O ~/dockgo
+wget https://raw.githubusercontent.com/xpika/dockgo/master/dockgo.sh -O ~/dockgo.sh
 ```
 then
 ```
-echo source ~/dockgo >> ~/.bashrc
+echo source ~/dockgo.sh >> ~/.bashrc
 bash
 ```
 
