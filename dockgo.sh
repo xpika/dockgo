@@ -78,7 +78,9 @@ alias dockstorage='sudo docker info|grep "Storage Driver"'
 alias dockutfinst='docker exec -i -t "${PWD##*/}" sh -c "(locale-gen en_US.UTF-8);(echo export LANG=C.UTF-8 LC_ALL=en_US.UTF-8 LANGUAGE=en_US.UTF-8 >> ~/.bashrc ) "'
 alias dockvimmousedis='docker exec -i -t "${PWD##*/}" sh -c "echo set mouse= >> ~/.vimrc  "'
 alias dockcabalpathadd='docker exec -i -t "${PWD##*/}" sh -c "echo PATH=~/.cabal/bin:$PATH >> /root/.bashrc  "'
-#alias docksshinst="docker exec -i -t \"${PWD##*/}\" sh -c \"apt-get install -y ssh ; sed -i \\"s/^PermitRootLogin .*/PermitRootLogin yes/\\" /etc/ssh/sshd_config ; service ssh start\""
+function docksshinst(){
+  docker exec -i -t "${PWD##*/}" sh -c 'apt-get install -y ssh ; sed -i "s/^PermitRootLogin .*/PermitRootLogin yes/" /etc/ssh/sshd_config ; service ssh start'
+}
 alias dockdrestart="systemctl restart docker"
 alias dockstoprestart="docker update --restart=no ${PWD##*/}"
 alias dockstap='dockstoprestart ; dockstop'
